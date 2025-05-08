@@ -11,7 +11,6 @@ from typing import TYPE_CHECKING, cast, Optional
 
 class Instantiate:
     def __init__(self, font: TTFont, /):
-        pass
         # variations = args.get("variations")
 
         # options = args.get("options")
@@ -37,7 +36,14 @@ class Instantiate:
         #     description += " Use fallback mode."
 
         self.nameTable: table__n_a_m_e = font["name"]
-        weight = self.nameTable.getDebugName(2)
+        # support for pretendard
+        splited = self.nameTable.getDebugName(1).split()
+        if len(splited) > 1:
+            weight = splited[1]
+        else:
+            weight = self.nameTable.getDebugName(2)
+        # weight = self.nameTable.getDebugName(1).split()[1]
+        print('weight', weight)
 
         # self.nameTable.names = []
         family = "Pretendard Avenue"
@@ -57,7 +63,7 @@ class Instantiate:
 
         # refer to https://learn.microsoft.com/en-us/typography/opentype/spec/name#name-ids for a list of name codes
         self.setName("Pretendard Avenue", 1)
-        # self.setName(subfamily, 2)
+        self.setName(weight, 2)
         self.setName(fullName, 3)
         self.setName(f"Pretendard Avenue {weight}", 4)
         # self.setName("Version 1.000", 5)
@@ -251,21 +257,21 @@ def load_font(filename: str, /):
 
 def main():
     avenue_variants = AvenueLoader.variants()
-    print(avenue_variants)
     def find_variant(v: str):
         for variant in avenue_variants:
             if variant["variant"] == v:
                 return variant
         return None
 
-    print(Loader.variants())
     for variant in Loader.variants():
         print(variant["variant"])
         font = load_font(variant["path"])
         Instantiate(font)
         Activator(font)
         font.save(find_variant(variant["variant"])["path"])
-    # regular_path = Loader.regular()
+
+    # print(Loader.variants()[1]['path'])
+    # regular_path = Loader.variants()[1]['path']
     # font = load_font(regular_path)
     # Instantiate(font)
     # Activator(font)

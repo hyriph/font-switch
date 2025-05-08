@@ -84,4 +84,4 @@ def display_name_table(path: str | Path) -> None:
 
 if __name__ == "__main__":
     from loader import Loader, AvenueLoader
-    display_name_table(AvenueLoader.regular())
+    display_name_table(Loader.variants()[1]['path'])
