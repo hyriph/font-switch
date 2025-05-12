@@ -1,0 +1,15 @@
+"Segoe UI Light (TrueType)"="segoeuil.ttf"
+"Segoe UI Semilight (TrueType)"="segoeuisl.ttf"
+"Segoe UI (TrueType)"="segoeui.ttf"
+"Segoe UI Semibold (TrueType)"="seguisb.ttf"
+"Segoe UI Bold (TrueType)"="segoeuib.ttf"
+"Segoe UI Black (TrueType)"="seguibl.ttf"
+
+"Segoe UI Light Italic (TrueType)"="seguili.ttf"
+"Segoe UI Semilight Italic (TrueType)"="seguisli.ttf"
+"Segoe UI Italic (TrueType)"="segoeuii.ttf"
+"Segoe UI Semibold Italic (TrueType)"="seguisbi.ttf"
+"Segoe UI Bold Italic (TrueType)"="segoeuiz.ttf"
+"Segoe UI Black Italic (TrueType)"="seguibli.ttf"
+
+"Segoe UI Variable (TrueType)"="SegUIVar.ttf"

@@ -38,8 +38,9 @@ class Instantiate:
         self.nameTable: table__n_a_m_e = font["name"]
         # support for pretendard
         splited = self.nameTable.getDebugName(1).split()
-        if len(splited) > 1:
-            weight = splited[1]
+        print( splited[-1] == 'JP')
+        if len(splited) > 1 and not splited[-1] == 'JP':
+            weight = splited[-1]
         else:
             weight = self.nameTable.getDebugName(2)
         # weight = self.nameTable.getDebugName(1).split()[1]
@@ -54,7 +55,7 @@ class Instantiate:
         # if not typo_family:
         #     typo_family = family
 
-        fullName = f'1.309;HYRI;PretendardAvenue-{weight}'
+        fullName = f'1.309;HYRI;PretendardAvenueJP-{weight}'
         # if not typo_subfamily or typo_subfamily == subfamily:
         #     typo_subfamily = subfamily
         #     fullName = f"{family} {subfamily}"
@@ -62,12 +63,12 @@ class Instantiate:
         #     fullName = f"{family} {typo_subfamily} {subfamily}"
 
         # refer to https://learn.microsoft.com/en-us/typography/opentype/spec/name#name-ids for a list of name codes
-        self.setName("Pretendard Avenue", 1)
+        self.setName("Pretendard Avenue JP", 1)
         self.setName(weight, 2)
         self.setName(fullName, 3)
-        self.setName(f"Pretendard Avenue {weight}", 4)
+        self.setName(f"Pretendard Avenue JP {weight}", 4)
         # self.setName("Version 1.000", 5)
-        self.setName(f"PretendardAvenue-{weight}", 6)
+        self.setName(f"PretendardAvenueJP-{weight}", 6)
         self.setName("FontCon 1.0.0", 8)
         self.setKoreanName("FontCon 1.0.0", 8)
         self.setName(description, 10)
@@ -76,7 +77,7 @@ class Instantiate:
         # we don't change designer because no visual changes are made
         self.setName("https://hyri.xyz/", 11)
         # self.setName("https://mutsuntsai.github.io/fontfreeze", 11)
-        self.setName("Pretendard Avenue", 16)
+        self.setName("Pretendard Avenue JP", 16)
         # self.setName(typo_subfamily, 17)
         # self.setName(fullName, 18)
 
